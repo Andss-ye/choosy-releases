@@ -5,11 +5,17 @@
 # CHOOSY_DEST changes the destination and CHOOSY_NO_OPEN=1 skips opening the app (tests).
 set -eu
 
-[ "$(uname -m)" = arm64 ] || { echo "Choosy only runs on Apple Silicon Macs." >&2; exit 1; }
+[ "$(sysctl -n hw.optional.arm64 2>/dev/null)" = 1 ] || { echo "Choosy only runs on Apple Silicon Macs." >&2; exit 1; }
 
 TMP=$(mktemp -d)
 MNT=$TMP/mnt
-trap 'hdiutil detach -quiet "$MNT" 2>/dev/null || true; rm -rf "$TMP"' EXIT INT TERM
+cleanup() {
+  hdiutil detach -quiet "$MNT" 2>/dev/null || true
+  rm -rf "$TMP"
+  [ -z "${DEST:-}" ] || rm -rf "$DEST/.Choosy.app.new"
+}
+trap cleanup EXIT
+trap 'exit 1' INT TERM
 
 echo "Downloading Choosy…"
 curl -fL --progress-bar -o "$TMP/Choosy.dmg" "${CHOOSY_DMG_URL:-https://github.com/Andss-ye/choosy-releases/releases/latest/download/Choosy.dmg}"
@@ -28,10 +34,12 @@ if [ ! -w "$DEST" ]; then
   mkdir -p "$DEST"
 fi
 
+# The new copy is ready before the old one goes away.
+ditto "$MNT/Choosy.app" "$DEST/.Choosy.app.new"
+xattr -dr com.apple.quarantine "$DEST/.Choosy.app.new" 2>/dev/null || true
 pkill -x Choosy 2>/dev/null || true
 rm -rf "$DEST/Choosy.app"
-ditto "$MNT/Choosy.app" "$DEST/Choosy.app"
-xattr -dr com.apple.quarantine "$DEST/Choosy.app" 2>/dev/null || true
+mv "$DEST/.Choosy.app.new" "$DEST/Choosy.app"
 echo "Choosy installed in $DEST"
 echo "Optional command line: ln -sf \"$DEST/Choosy.app/Contents/MacOS/Choosy\" /usr/local/bin/choosy"
 [ "${CHOOSY_NO_OPEN:-}" = 1 ] || open "$DEST/Choosy.app"
