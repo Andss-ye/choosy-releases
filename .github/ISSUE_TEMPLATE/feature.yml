@@ -1,0 +1,15 @@
+name: Idea
+description: An app Choosy should support, or something it could do
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does it solve
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: How do you imagine it
+      description: For a new app, say where it keeps its theme setting (file and key) if you know.

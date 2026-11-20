@@ -1,0 +1,30 @@
+name: Bug report
+description: Something does not work as it should
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you expected and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to reproduce it
+      description: The theme you applied helps a lot. Paste the output of `choosy preview <theme>` if you use the command line.
+    validations:
+      required: true
+  - type: input
+    id: apps
+    attributes:
+      label: Apps involved
+      placeholder: "Ghostty 1.3, Zed 0.210"
+  - type: input
+    id: version
+    attributes:
+      label: Choosy and macOS versions
+      placeholder: "Choosy 0.1.0, macOS 26.1"
+    validations:
+      required: true
