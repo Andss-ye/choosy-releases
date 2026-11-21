@@ -124,6 +124,6 @@ Found a bug or have an idea? [Open an issue](https://github.com/Andss-ye/choosy-
 
 ## Made by Andrew
 
-[X (@Andssye_)](https://x.com/Andssye_) · [LinkedIn](https://linkedin.com/in/andss-ye) · [Portfolio](https://andssye.vercel.app/) · [GitHub](https://github.com/Andss-ye)
+[LinkedIn](https://linkedin.com/in/andss-ye) · [Portfolio](https://andssye.vercel.app/) · [GitHub](https://github.com/Andss-ye)
 
 Choosy is free to use. See [LICENSE](LICENSE) and [third-party notices](THIRD-PARTY-NOTICES.md).
