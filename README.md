@@ -5,7 +5,7 @@
 # Choosy
 
 **One click, and your whole Mac changes its look.**<br>
-Light or dark mode, wallpaper and the theme of your dev tools (Ghostty, Zed, Cursor, VS Code, Claude Code, btop, starship), switched together.
+Light or dark mode, wallpaper and the theme of your dev tools (Ghostty, cmux, Zed, Cursor, VS Code, Claude Code, btop, starship), switched together.
 
 [![Download for macOS](https://img.shields.io/badge/Download-Choosy.dmg-f78e7a?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/Andss-ye/choosy-releases/releases/latest/download/Choosy.dmg)
 
@@ -24,8 +24,10 @@ Light or dark mode, wallpaper and the theme of your dev tools (Ghostty, Zed, Cur
 You probably have a terminal theme, an editor theme, a wallpaper and a system mode that only match on a good day. Choosy keeps them in a **theme** and switches all of them at once, from the menu bar, from its window or from the terminal.
 
 - **Finds what you use.** Choosy looks at what is installed and only touches those apps.
+- **Eight base themes that work everywhere.** Gruvbox, Catppuccin, Rosé Pine and the Choosy pair, in light and dark. If an app is missing one, Choosy asks first, then installs the official theme files (pinned and checksum-verified) or the editor extension. After that it works offline, and **Installed by Choosy** removes it all in one click.
+- **A painted wallpaper for each theme,** generated on your Mac in the theme's colors, set on every display and every Space.
 - **Uses the themes your apps already have.** Say "Catppuccin Mocha" and each app gets its own Catppuccin Mocha. If an app doesn't have it, bring your own 16-color palette and Choosy generates the theme for Ghostty, Zed, btop and starship.
-- **Tiny and fast.** Native Swift and AppKit, a ~430 KB binary, under 30 MB of memory and no background work. A theme switch takes a couple of milliseconds; a theme file is under 1 KB.
+- **Tiny and fast.** Native Swift and AppKit, a ~650 KB binary and about 28 MB of memory: the heavy work (downloads, painting wallpapers, reading app catalogs) runs in a short-lived process that gives all its memory back when it ends. A theme switch takes a couple of milliseconds; a theme file is under 1 KB.
 - **Careful with your config.** It changes only the theme line or key, keeps your comments and symlinks, makes a backup first, and **Restore originals** puts every value back without touching your own edits.
 
 ## Supported apps
@@ -33,8 +35,9 @@ You probably have a terminal theme, an editor theme, a wallpaper and a system mo
 | App | What changes |
 |---|---|
 | macOS | Light or dark mode |
-| Wallpaper | Any image, including dynamic `.heic` |
-| [Ghostty](https://ghostty.org) | The light or dark slot of `theme`, or a generated theme |
+| Wallpaper | Any image, including dynamic `.heic`, on every display and every Space |
+| [Ghostty](https://ghostty.org) | The light and dark slots of `theme`, or a generated theme; reloaded live on 1.4+ |
+| [cmux](https://cmux.com) | The same Ghostty theme, reloaded live |
 | [Zed](https://zed.dev) | The light or dark slot of `"theme"`, or a generated theme |
 | [Cursor](https://cursor.com) and [VS Code](https://code.visualstudio.com) | `workbench.preferredLight/DarkColorTheme` |
 | [Claude Code](https://claude.com/claude-code) | `theme`, or the ANSI variant that follows your terminal colors |
@@ -66,11 +69,11 @@ The first time you open Choosy it saves your current setup as **Theme personaliz
 
 <img src="assets/editor.png" width="420" align="right" alt="The theme editor: name, mode, family, wallpaper, palette and a theme per app">
 
-- **Window:** click a preview to apply that theme. **Details** shows what each app will get, **Edit** opens the editor and **Create new** starts from the gallery (Catppuccin, Flexoki, Melange, Gruvbox, Rosé Pine, Tokyo Night), a family name or a blank palette.
+- **Window:** click a preview to apply that theme. **Details** shows what each app will get, **Edit** opens the editor and **Create new** starts from a family name or a blank palette. Below your themes are the **base themes**: pick one and Choosy offers to install whatever an app is missing.
 - **Menu bar:** your themes, one click away.
 - **Terminal:** `choosy list`, `choosy apply <theme>`, `choosy preview <theme>`, `choosy restore`. The installer prints how to add the `choosy` command.
 
-Ghostty doesn't reload its config by itself: press <kbd>⌘</kbd><kbd>⇧</kbd><kbd>,</kbd> after switching. Claude Code picks up the new theme in its next session.
+Ghostty 1.4+ and cmux reload on their own (older Ghostty: press <kbd>⌘</kbd><kbd>⇧</kbd><kbd>,</kbd>). Claude Code picks up the new theme in its next session. A theme that sets nothing for an app puts that app back on your own setting.
 
 <br clear="right">
 
@@ -96,7 +99,7 @@ Choosy updates itself with [Sparkle](https://sparkle-project.org). It checks onc
 
 ## Privacy
 
-Everything happens on your Mac. Choosy reads and writes only the config files of the apps listed above and its own folder, `~/.config/choosy`. The only network request is the update check, which downloads this repo's `appcast.xml` and sends nothing about you.
+Everything happens on your Mac. Choosy reads and writes only the config files of the apps listed above, the wallpaper settings, its own folder `~/.config/choosy` and, for base themes, `~/Library/Application Support/Choosy/Wallpapers`. Network requests: the update check (this repo's `appcast.xml`), and, only after you accept installing a base theme, its official files from GitHub and the extension from Open VSX through your editor's own CLI. Nothing about you is sent and nothing is cached on disk.
 
 ## FAQ
 
@@ -113,7 +116,13 @@ Only if the direct way to switch light and dark mode isn't available, Choosy fal
 No, Choosy is built for Apple Silicon only.
 
 **How do I uninstall it?**
-Run **Restore originals** if you want your old settings back, quit Choosy from the menu bar and drag it from Applications to the Trash. Your themes stay in `~/.config/choosy`; delete that folder too if you don't need them.
+Paste this in Terminal:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/Andss-ye/choosy-releases/main/install.sh | sh -s -- --uninstall
+```
+
+It removes the themes Choosy installed (your apps go back to their previous theme), restores every original setting and your wallpaper, and deletes the app, its command and its caches. Your own themes stay in `~/.config/choosy`; add `CHOOSY_PURGE=1` before `sh` to delete them too.
 
 ## Feedback
 
