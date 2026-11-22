@@ -19,16 +19,13 @@ Light or dark mode, wallpaper and the theme of your dev tools (Ghostty, Zed, Cur
 
 </div>
 
-> [!NOTE]
-> The first public release is on its way. Watch this repo (**Watch → Custom → Releases**) to know when it lands.
-
 ## What it does
 
 You probably have a terminal theme, an editor theme, a wallpaper and a system mode that only match on a good day. Choosy keeps them in a **theme** and switches all of them at once, from the menu bar, from its window or from the terminal.
 
 - **Finds what you use.** Choosy looks at what is installed and only touches those apps.
 - **Uses the themes your apps already have.** Say "Catppuccin Mocha" and each app gets its own Catppuccin Mocha. If an app doesn't have it, bring your own 16-color palette and Choosy generates the theme for Ghostty, Zed, btop and starship.
-- **Tiny and fast.** Native Swift and AppKit, a ~430 KB binary, about 8 MB of memory and no background work. A theme switch takes a couple of milliseconds; a theme file is under 1 KB.
+- **Tiny and fast.** Native Swift and AppKit, a ~430 KB binary, under 30 MB of memory and no background work. A theme switch takes a couple of milliseconds; a theme file is under 1 KB.
 - **Careful with your config.** It changes only the theme line or key, keeps your comments and symlinks, makes a backup first, and **Restore originals** puts every value back without touching your own edits.
 
 ## Supported apps
