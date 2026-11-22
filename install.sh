@@ -37,7 +37,7 @@ fi
 # The new copy is ready before the old one goes away.
 ditto "$MNT/Choosy.app" "$DEST/.Choosy.app.new"
 xattr -dr com.apple.quarantine "$DEST/.Choosy.app.new" 2>/dev/null || true
-pkill -x Choosy 2>/dev/null || true
+pkill -f "^$DEST/Choosy.app/Contents/MacOS/Choosy" 2>/dev/null || true
 rm -rf "$DEST/Choosy.app"
 mv "$DEST/.Choosy.app.new" "$DEST/Choosy.app"
 echo "Choosy installed in $DEST"
