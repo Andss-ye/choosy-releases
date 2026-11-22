@@ -7,10 +7,10 @@
 **One click, and your whole Mac changes its look.**<br>
 Light or dark mode, wallpaper and the theme of your dev tools (Ghostty, Zed, Cursor, VS Code, Claude Code, btop, starship), switched together.
 
-[![Download for macOS](https://img.shields.io/badge/Download-Choosy.dmg-e8a15a?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/Andss-ye/choosy-releases/releases/latest/download/Choosy.dmg)
+[![Download for macOS](https://img.shields.io/badge/Download-Choosy.dmg-f78e7a?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/Andss-ye/choosy-releases/releases/latest/download/Choosy.dmg)
 
-[![Latest release](https://img.shields.io/github/v/release/Andss-ye/choosy-releases?label=release&color=e8a15a)](https://github.com/Andss-ye/choosy-releases/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/Andss-ye/choosy-releases/total?color=e8a15a)](https://github.com/Andss-ye/choosy-releases/releases)
+[![Latest release](https://img.shields.io/github/v/release/Andss-ye/choosy-releases?label=release&color=f78e7a)](https://github.com/Andss-ye/choosy-releases/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/Andss-ye/choosy-releases/total?color=f78e7a)](https://github.com/Andss-ye/choosy-releases/releases)
 ![macOS 26+](https://img.shields.io/badge/macOS-26%2B-blue)
 ![Apple Silicon](https://img.shields.io/badge/Apple%20Silicon-M1%2B-blue)
 [![License: Freeware](https://img.shields.io/badge/license-freeware-lightgrey)](LICENSE)
