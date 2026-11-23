@@ -23,6 +23,7 @@ if [ "${1:-}" = --uninstall ]; then
   done
   rm -rf "$HOME/Library/Caches/app.choosy.Choosy" "$HOME/Library/HTTPStorages/app.choosy.Choosy" \
     "$HOME/Library/Caches/Choosy" "$HOME/Library/HTTPStorages/Choosy" "$HOME/Library/Application Support/Choosy" \
+    "$HOME/Library/HTTPStorages/app.choosy.Choosy.binarycookies" "$HOME/Library/HTTPStorages/Choosy.binarycookies" \
     "$HOME/Library/Preferences/app.choosy.Choosy.plist" "$HOME/Library/Saved Application State/app.choosy.Choosy.savedState"
   defaults delete app.choosy.Choosy 2>/dev/null || true
   if [ "${CHOOSY_PURGE:-}" = 1 ]; then rm -rf "$HOME/.config/choosy"
