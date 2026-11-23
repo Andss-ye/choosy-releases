@@ -27,7 +27,7 @@ You probably have a terminal theme, an editor theme, a wallpaper and a system mo
 - **Eight base themes that work everywhere.** Gruvbox, Catppuccin, Rosé Pine and the Choosy pair, in light and dark. If an app is missing one, Choosy asks first, then installs the official theme files (pinned and checksum-verified) or the editor extension. After that it works offline, and **Installed by Choosy** removes it all in one click.
 - **A painted wallpaper for each theme,** generated on your Mac in the theme's colors, set on every display and every Space.
 - **Uses the themes your apps already have.** Say "Catppuccin Mocha" and each app gets its own Catppuccin Mocha. If an app doesn't have it, bring your own 16-color palette and Choosy generates the theme for Ghostty, Zed, btop and starship.
-- **Tiny and fast.** Native Swift and AppKit, a ~650 KB binary and about 28 MB of memory: the heavy work (downloads, painting wallpapers, reading app catalogs) runs in a short-lived process that gives all its memory back when it ends. A theme switch takes a couple of milliseconds; a theme file is under 1 KB.
+- **Tiny and fast.** Native Swift and AppKit, a ~720 KB binary and about 28 MB of memory: the heavy work (downloads, painting wallpapers, reading app catalogs) runs in a short-lived process that gives all its memory back when it ends. A theme switch takes a couple of milliseconds; a theme file is under 1 KB.
 - **Careful with your config.** It changes only the theme line or key, keeps your comments and symlinks, makes a backup first, and **Restore originals** puts every value back without touching your own edits.
 
 ## Supported apps
