@@ -13,7 +13,7 @@ if [ "${1:-}" = --uninstall ]; then
     BIN=$APP/Contents/MacOS/Choosy
     pkill -f "^$BIN" 2>/dev/null || true
     # Installed themes first (their apps go back to the previous theme), then every original value and the wallpaper.
-    for pack in $("$BIN" installed 2>/dev/null | awk 'NF > 1 { print $1 }'); do "$BIN" uninstall "$pack" || true; done
+    for pack in $("$BIN" installed 2>/dev/null | awk '/ KB$/ { print $1 }'); do "$BIN" uninstall "$pack" || true; done
     "$BIN" restore || true
     for link in /usr/local/bin/choosy "$HOME/.local/bin/choosy"; do
       [ "$(readlink "$link" 2>/dev/null)" = "$BIN" ] && rm -f "$link"
