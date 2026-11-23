@@ -9,6 +9,7 @@ Light or dark mode, wallpaper and the theme of your dev tools (Ghostty, cmux, Ze
 
 [![Download for macOS](https://img.shields.io/badge/Download-Choosy.dmg-f78e7a?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/Andss-ye/choosy-releases/releases/latest/download/Choosy.dmg)
 
+[![Website](https://img.shields.io/badge/website-getchoosy.pages.dev-f78e7a)](https://getchoosy.pages.dev)
 [![Latest release](https://img.shields.io/github/v/release/Andss-ye/choosy-releases?label=release&color=f78e7a)](https://github.com/Andss-ye/choosy-releases/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/Andss-ye/choosy-releases/total?color=f78e7a)](https://github.com/Andss-ye/choosy-releases/releases)
 ![macOS 26+](https://img.shields.io/badge/macOS-26%2B-blue)
